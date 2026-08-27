@@ -8,7 +8,8 @@ Japanese web page.
 - 💡 **Wish it did something?** → [Open a feature request](../../issues/new?template=feature_request.yml)
 
 No account rules, no formality — a screenshot and the page URL where it happened
-already make a great report. English or 日本語 both welcome.
+already make a great report. Write in whatever language you're comfortable with;
+every language is welcome here.
 
 ## Links
 
