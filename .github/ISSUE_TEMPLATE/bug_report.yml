@@ -1,0 +1,42 @@
+name: Bug report
+description: Something in Naruhodo broke or looks wrong
+labels: [bug]
+body:
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened?
+      description: What did you see, and what did you expect instead?
+      placeholder: "Hovering 寿司 shows the wrong reading… / The page turned dark and…"
+    validations:
+      required: true
+  - type: input
+    id: page-url
+    attributes:
+      label: Page where it happened
+      description: A URL helps enormously — most lookup bugs depend on the exact page.
+      placeholder: "https://ja.wikipedia.org/wiki/寿司"
+    validations:
+      required: false
+  - type: input
+    id: environment
+    attributes:
+      label: Browser & OS
+      placeholder: "Chrome 139 on macOS / Edge on Windows 11"
+    validations:
+      required: false
+  - type: input
+    id: version
+    attributes:
+      label: Naruhodo version
+      description: Shown at chrome://extensions with Developer mode on, or on the store page.
+      placeholder: "0.4.25"
+    validations:
+      required: false
+  - type: textarea
+    id: extra
+    attributes:
+      label: Screenshots or anything else
+      description: Drag & drop images here if you have them.
+    validations:
+      required: false

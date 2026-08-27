@@ -1,0 +1,17 @@
+name: Feature request
+description: Something you wish Naruhodo could do
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like Naruhodo to do?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: What reading situation is this for?
+      description: Optional — knowing where it hurts (news sites, novels, manga sites…) helps design the right fix.
+    validations:
+      required: false
