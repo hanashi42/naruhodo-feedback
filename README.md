@@ -14,7 +14,7 @@ every language is welcome here.
 ## Links
 
 - [Naruhodo on the Chrome Web Store](https://chromewebstore.google.com/detail/olkenlejikehefdanolhknlgfagihdkb)
-- [Privacy policy](https://hanashi42.github.io/naruhodo-site/)
+- [Privacy policy](https://hanashi42.github.io/naruhodo-feedback/)
 
 *The extension's source code is developed in a separate repository; this repo
 exists so bug reports have a public home.*

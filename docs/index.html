@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Naruhodo — Privacy Policy</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      color: #333;
+      line-height: 1.6;
+    }
+    h1 { font-size: 24px; margin-bottom: 8px; }
+    h2 { font-size: 18px; margin-top: 32px; }
+    .updated { color: #666; font-size: 14px; margin-bottom: 32px; }
+    ul { padding-left: 20px; }
+    li { margin-bottom: 4px; }
+  </style>
+</head>
+<body>
+  <h1>Naruhodo — Privacy Policy</h1>
+  <p class="updated">Last updated: August 19, 2026</p>
+
+  <h2>Overview</h2>
+  <p>Naruhodo is a Chrome extension that helps you read Japanese by providing furigana and word lookups. We are committed to protecting your privacy. This policy describes what data the extension processes and how it is handled. In short: Naruhodo operates no servers, and the text of the pages you read is never sent anywhere. Exactly one feature reaches the network: pressing play on a word fetches that word's pronunciation recording from an outside audio service. That single word is the only thing Naruhodo ever sends, it goes out only when you press play, and it can be switched off &mdash; all of it described under &ldquo;Audio Pronunciation&rdquo; below.</p>
+
+  <h2>Data Stored in Your Browser</h2>
+  <p>The following data is stored in your browser and is never sent to Naruhodo or any third-party service:</p>
+  <ul>
+    <li><strong>Vocabulary bank</strong> — Words you save, including the word, reading, definition, source sentence, page URL, page title, tags, and save timestamp. Stored in <code>chrome.storage.local</code>. It is never written to Chrome's sync area and never sent anywhere. One local copy does leave that storage area: once you have saved a handful of words, the extension writes an automatic backup — a plain-text JSON file containing the whole vocabulary bank, including source sentences and page URLs — to your Downloads folder at most once a week. Those files stay on your disk until you delete them, <em>including after you uninstall the extension</em>.</li>
+    <li><strong>Known words</strong> — The list of dictionary word IDs you mark as "known". Stored in <code>chrome.storage.local</code>, and also written to Chrome's sync area (see "Chrome Sync" below).</li>
+    <li><strong>Extension settings</strong> — Your preferences such as hover mode, furigana mode, and theme. Stored in <code>chrome.storage.local</code>, and also written to Chrome's sync area (see "Chrome Sync" below).</li>
+    <li><strong>Dictionary data</strong> — The bundled dictionary (295,000+ entries from JMdict and JMnedict, plus JLPT, pitch-accent, and example-sentence data) loaded into IndexedDB on first install. This data is shipped with the extension, not downloaded from the internet.</li>
+    <li><strong>Pronunciation clips</strong> — Recordings you have played are kept in their own IndexedDB database so the same word is not fetched twice. It holds a few hundred clips and drops the least recently used beyond that; uninstalling the extension removes it.</li>
+    <li><strong>Page content analysis</strong> — When you visit a Japanese web page, the extension reads text on the page to provide furigana and hover lookups. This text is processed entirely within your browser and never leaves it. The only thing that can leave is the single dictionary word you press play on, described under &ldquo;Audio Pronunciation&rdquo; below.</li>
+  </ul>
+
+  <h2>Chrome Sync</h2>
+  <p>Your known-words list and extension settings are written to <code>chrome.storage.sync</code> so they can follow you across your own devices and survive a reinstall. If you have Chrome Sync enabled in your browser, Chrome transmits this data through your own Google account — the same mechanism Chrome uses to sync bookmarks. Naruhodo has no access to this transmission and no servers of its own. If Chrome Sync is disabled, this data never leaves your device. Your vocabulary bank is never written to the sync area.</p>
+
+  <h2>Data Sent to External Services</h2>
+  <p>Naruhodo has no servers, so nothing is ever sent to us. All core processing — dictionary lookups, tokenization, furigana generation, grammar annotation — happens entirely within your browser.</p>
+  <p>One feature makes a network request of its own: <strong>audio pronunciation</strong>, described in the next section. It sends one dictionary word to an outside audio service, and only when you press play.</p>
+  <p>Two features hand work to services built into your browser:</p>
+  <ul>
+    <li><strong>Selection translation</strong> — uses Chrome's built-in on-device translation model. The text stays on your device.</li>
+    <li><strong>The device voice</strong> — when pronunciation uses your browser's own speech synthesis, some voices are synthesized on your device and some are synthesized online by your browser vendor; when a voice is an online one, <em>your browser</em> sends the text being spoken to that vendor. Naruhodo always prefers an on-device Japanese voice when your system has one, and if your system has no Japanese voice at all nothing is spoken rather than a voice that would mispronounce the word.</li>
+  </ul>
+
+  <h2>Audio Pronunciation</h2>
+  <p>When you press play on a word — on a hover card, or in your vocabulary bank — with &ldquo;Native recordings&rdquo; enabled (the default), Naruhodo requests that word's pronunciation clip from the JapanesePod101 dictionary audio service (<code>assets.languagepod101.com</code>, which redirects the download to that vendor's own CDN, currently <code>cdn.innovativelanguage.com</code>). The request contains the dictionary word and its kana reading — nothing else. As with any web request, standard metadata such as your IP address is visible to that service. Clips are cached on your device, so playing the same word again reaches no further than that cache; it holds a few hundred clips, and one that ages out is fetched again the next time you play that word. Words shown in a conjugated form, and name entries, are spoken by your device's voice and never trigger a request. Nothing is requested while you read or hover — only when you press play. Choose &ldquo;Device voice only&rdquo; in the toolbar and Naruhodo makes no network requests at all &mdash; pronunciation then uses your browser&rsquo;s own speech engine. One caveat that is the browser&rsquo;s, not Naruhodo&rsquo;s: if the only Japanese voice your browser offers is an online one, the browser itself sends the spoken text to its voice vendor.</p>
+
+  <h2>Data We Do Not Collect</h2>
+  <ul>
+    <li>We do not collect personal information (name, email, etc.).</li>
+    <li>We do not collect browsing history or page URLs (except what you explicitly save to your local vocabulary bank).</li>
+    <li>We do not use analytics, tracking pixels, or any third-party tracking services.</li>
+    <li>We do not sell or share your data, and we transfer nothing to a third party for advertising, profiling, or any purpose beyond the single audio request described above.</li>
+  </ul>
+
+  <h2>Permissions</h2>
+  <p>The extension requests the following browser permissions:</p>
+  <ul>
+    <li><strong>All URLs (host_permissions)</strong> — The content script must run on any web page to detect Japanese text and provide reading assistance.</li>
+    <li><strong>Storage</strong> — To save your vocabulary bank, known words, and preferences.</li>
+    <li><strong>Unlimited Storage</strong> — The bundled dictionary is roughly 50 MB and requires more than the default storage quota.</li>
+    <li><strong>Active Tab</strong> — To communicate with the current tab for furigana and hover features.</li>
+    <li><strong>Offscreen</strong> — To run the dictionary and tokenizer in a background document for performance, and to fetch and cache pronunciation clips when you press play.</li>
+    <li><strong>Downloads</strong> — To save Anki export files and backup files to your Downloads folder.</li>
+    <li><strong>Alarms</strong> — To schedule the automatic backup check. The check runs about once a day; a backup file is only written when the previous one is at least a week old and your data has actually changed, so in practice you get at most one file per week.</li>
+  </ul>
+
+  <h2>Data Retention and Deletion</h2>
+  <p>All stored data remains under your control:</p>
+  <ul>
+    <li>Individual words can be removed from the vocabulary bank, and known words can be un-marked at any time.</li>
+    <li>Backup and Anki export files are ordinary files in your Downloads folder; delete them like any other file. This includes the weekly automatic backup described above, which contains your saved words together with their source sentences and page URLs.</li>
+    <li>Uninstalling the extension removes everything it stored inside the browser. It does <strong>not</strong> remove files already written to your Downloads folder — delete those yourself if you want them gone. Data in Chrome's sync area is managed by Chrome and your Google account, and may be restored if you reinstall the extension while Chrome Sync is active.</li>
+  </ul>
+
+  <h2>Changes to This Policy</h2>
+  <p>If we make changes to this privacy policy, we will update the "Last updated" date above. Continued use of the extension after changes constitutes acceptance of the updated policy.</p>
+
+  <h2>Contact</h2>
+  <p>Questions about this privacy policy, bug reports, and feature requests are all welcome — please open an issue at <a href="https://github.com/hanashi42/naruhodo-feedback/issues">github.com/hanashi42/naruhodo-feedback/issues</a>.</p>
+</body>
+</html>
