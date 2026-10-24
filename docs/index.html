@@ -22,7 +22,7 @@
 </head>
 <body>
   <h1>Naruhodo — Privacy Policy</h1>
-  <p class="updated">Last updated: October 3, 2026</p>
+  <p class="updated">Last updated: October 24, 2026</p>
 
   <h2>Overview</h2>
   <p>Naruhodo is a Chrome extension that helps you read Japanese by providing furigana and word lookups. We are committed to protecting your privacy. This policy describes what data the extension processes and how it is handled. In short: Naruhodo operates no servers, and the text of the pages you read is never sent anywhere. Exactly one feature reaches the network: pressing play on a word fetches that word's pronunciation recording from an outside audio service. That single word is the only thing Naruhodo ever sends, it goes out only when you press play, and it can be switched off &mdash; all of it described under &ldquo;Audio Pronunciation&rdquo; below.</p>
@@ -30,7 +30,7 @@
   <h2>Data Stored in Your Browser</h2>
   <p>The following data is stored in your browser and is never sent to Naruhodo or any third-party service:</p>
   <ul>
-    <li><strong>Vocabulary bank</strong> — Words you save, including the word, reading, definition, source sentence, page URL, page title, tags, and save timestamp. Stored in <code>chrome.storage.local</code>. It is never written to Chrome's sync area and never sent anywhere. One local copy does leave that storage area: once you have saved a handful of words, the extension writes an automatic backup — a plain-text JSON file containing the whole vocabulary bank, including source sentences and page URLs — to your Downloads folder at most once a week. Those files stay on your disk until you delete them, <em>including after you uninstall the extension</em>.</li>
+    <li><strong>Vocabulary bank</strong> — Words you save, including the word, reading, definition, source sentence, page URL, page title, tags, and save timestamp. Stored in <code>chrome.storage.local</code>. It is never written to Chrome's sync area and never sent anywhere. One local copy does leave that storage area: once you have saved a handful of words, the extension writes an automatic backup — a plain-text JSON file containing the whole vocabulary bank, including source sentences and page URLs — to your Downloads folder at most once a week, plus one copy right after the extension updates to a new version. Those files stay on your disk until you delete them, <em>including after you uninstall the extension</em>.</li>
     <li><strong>Known words</strong> — The list of dictionary word IDs you mark as "known". Stored in <code>chrome.storage.local</code>, and also written to Chrome's sync area (see "Chrome Sync" below).</li>
     <li><strong>Extension settings</strong> — Your preferences such as hover mode, furigana mode, and theme. Stored in <code>chrome.storage.local</code>, and also written to Chrome's sync area (see "Chrome Sync" below).</li>
     <li><strong>Dictionary data</strong> — The bundled dictionary (295,000+ entries from JMdict and JMnedict, plus JLPT, pitch-accent, and example-sentence data) loaded into IndexedDB on first install. This data is shipped with the extension, not downloaded from the internet.</li>
@@ -46,7 +46,7 @@
   <p>One feature makes a network request of its own: <strong>audio pronunciation</strong>, described in the next section. It sends one dictionary word to an outside audio service, and only when you press play.</p>
   <p>Two features hand work to services built into your browser:</p>
   <ul>
-    <li><strong>Selection translation</strong> — uses Chrome's built-in on-device translation model. The text stays on your device.</li>
+    <li><strong>Selection translation</strong> — Selection translation uses Chrome's built-in translator: your text never leaves the browser, but Chrome itself may download the Japanese–English language pack the first time you use it.</li>
     <li><strong>The device voice</strong> — when pronunciation uses your browser's own speech synthesis, some voices are synthesized on your device and some are synthesized online by your browser vendor; when a voice is an online one, <em>your browser</em> sends the text being spoken to that vendor. Naruhodo always prefers an on-device Japanese voice when your system has one, and if your system has no Japanese voice at all nothing is spoken rather than a voice that would mispronounce the word.</li>
   </ul>
 
@@ -73,7 +73,7 @@
     <li><strong>Active Tab</strong> — To communicate with the current tab for furigana and hover features.</li>
     <li><strong>Offscreen</strong> — To run the dictionary and tokenizer in a background document for performance, and to fetch and cache pronunciation clips when you press play.</li>
     <li><strong>Downloads</strong> — To save Anki export files and backup files to your Downloads folder.</li>
-    <li><strong>Alarms</strong> — To schedule the automatic backup check. The check runs about once a day; a backup file is only written when the previous one is at least a week old and your data has actually changed, so in practice you get at most one file per week.</li>
+    <li><strong>Alarms</strong> — To schedule the automatic backup check. The check runs about once a day; a backup file is only written when the previous one is at least a week old and your data has actually changed, or once right after an update, so in practice you get at most one file per week and one per update.</li>
   </ul>
 
   <h2>Data Retention and Deletion</h2>
@@ -91,6 +91,7 @@
     <li><strong>Example sentences</strong> — the <a href="https://tatoeba.org/">Tatoeba Project</a>, CC BY 2.0 FR.</li>
     <li><strong>Tokenizer</strong> — <a href="https://github.com/sglkc/kuromoji.js">Kuromoji</a> (Apache License 2.0), with the mecab-ipadic dictionary &copy; Nara Institute of Science and Technology.</li>
     <li><strong>Pitch accent</strong> — <a href="https://github.com/mifunetoshiro/kanjium">Kanjium</a>, CC BY-SA 4.0.</li>
+    <li><strong>Grammar patterns</strong> — enriched from hanabira.org-japanese-content (<a href="https://hanabira.org">hanabira.org</a>, CC BY 4.0).</li>
     <li><strong>JLPT vocabulary lists</strong> — <a href="https://www.tanos.co.uk/jlpt/">Jonathan Waller's JLPT Resources</a>, CC BY, via <a href="https://github.com/stephenmk/yomitan-jlpt-vocab">yomitan-jlpt-vocab</a>.</li>
     <li><strong>Word frequency</strong> — derived from <a href="https://github.com/rspeer/wordfreq">wordfreq</a> (Robyn Speer), CC BY-SA 4.0.</li>
   </ul>
